@@ -1,303 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CREATIVE PORTFOLIO</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creative Portfolio - Marianne Dela Cruz</title>
 
-  <!-- Google Fonts -->
+  <!-- Link Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
-  <style>
-    /* ---------- Responsive, fluid design ---------- */
-
-    :root{
-      --purple-dark: #330066;
-      --bg-lav: #d6b4fc;
-      --white: #ffffff;
-      --accent: #4b0082;
-      /* fluid spacing scale */
-      --gutter: clamp(12px, 1.2vw, 28px);
-    }
-
-    html { box-sizing: border-box; font-size: 16px; }
-    *, *::before, *::after { box-sizing: inherit; }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      background-color: var(--bg-lav);
-      color: #222;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      /* make base font scale with viewport for zooming */
-      font-size: clamp(14px, 1.05vw + 12px, 18px);
-      line-height: 1.55;
-    }
-
-    header, footer {
-      background-color: var(--purple-dark);
-      color: white;
-      text-align: center;
-      padding: clamp(14px, 1.5vw, 28px) 0;
-      font-family: 'Bebas Neue', sans-serif;
-      letter-spacing: 2px;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: clamp(20px, 3.3vw, 44px);
-      line-height: 1;
-    }
-
-    /* NAV - sticky and responsive */
-    nav {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      background-color: var(--purple-dark);
-      position: sticky;
-      top: 0;
-      z-index: 60;
-      gap: 6px;
-    }
-
-    nav button {
-      background-color: var(--purple-dark);
-      color: white;
-      border: none;
-      padding: clamp(8px, 0.8vw, 14px) clamp(10px, 1.2vw, 20px);
-      cursor: pointer;
-      font-family: 'Poppins', sans-serif;
-      font-size: clamp(12px, 0.9vw, 16px);
-      transition: all 0.25s ease;
-      border-radius: 3px;
-    }
-
-    nav button:hover { background-color: var(--white); color: var(--purple-dark); }
-    nav button.active { background-color: var(--white); color: var(--purple-dark); }
-
-    /* MAIN container is fluid: width adapts; padding scales */
-    main {
-      width: min(1100px, 92%);
-      margin: clamp(18px, 3vw, 40px) auto;
-      background-color: var(--white);
-      border-radius: 10px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-      padding: clamp(18px, 2.2vw, 36px);
-      min-height: 48vh;
-    }
-
-    /* SECTIONS: hidden by default, fade in when active */
-    section {
-      display: none;
-      opacity: 0;
-      transform: translateY(6px);
-      transition: opacity 0.45s ease, transform 0.45s ease;
-    }
-    section.active {
-      display: block;
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Titles */
-    h2 {
-      color: var(--purple-dark);
-      border-left: 6px solid var(--purple-dark);
-      padding-left: 10px;
-      margin-top: 0;
-      font-size: clamp(18px, 1.8vw, 28px);
-    }
-    h3 { color: var(--accent); }
-
-    /* Images scale with container */
-    img {
-      border-radius: 8px;
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    /* GALLERY: horizontal flow on wide screens, stacked on small */
-    ul.gallery {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: clamp(12px, 1.6vw, 28px);
-      justify-content: center;
-    }
-
-    ul.gallery li {
-      text-align: center;
-      flex: 1 1 clamp(180px, 22vw, 300px);
-      max-width: clamp(220px, 28vw, 340px);
-    }
-
-    ul.gallery li img {
-      width: 100%;
-      height: auto;
-      transition: transform 0.25s ease;
-    }
-    ul.gallery li img:hover { transform: scale(1.04); }
-
-    /* ABOUT layout: table replaced with responsive grid */
-    #about .about-grid {
-      display: grid;
-      grid-template-columns: 260px 1fr;
-      gap: clamp(12px, 1.6vw, 28px);
-      align-items: start;
-    }
-
-    #about .about-grid img { width: 100%; border-radius: 8px; }
-
-    /* make about grid single column on small screens */
-    @media (max-width: 860px) {
-      #about .about-grid { grid-template-columns: 1fr; justify-items: center; text-align: center; }
-      #about .about-grid td, #about .about-grid div { width: 100%; }
-    }
-
-    /* Footer tweaks */
-    footer { font-size: clamp(12px, 0.9vw, 14px); padding: clamp(10px, 1.2vw, 18px) 0; }
-    footer a { color: var(--bg-lav); text-decoration: none; }
-    footer a:hover { text-decoration: underline; }
-
-    /* Small screens: nav becomes vertical full width buttons for easier tapping */
-    @media (max-width: 600px) {
-      nav { flex-direction: column; align-items: stretch; gap: 0; position: sticky; top: 0; }
-      nav button {
-        width: 100%;
-        text-align: left;
-        padding-left: clamp(14px, 4vw, 20px);
-        border-top: 1px solid rgba(255,255,255,0.06);
-      }
-      header h1 { font-size: clamp(18px, 4vw, 28px); }
-      main { width: calc(100% - 28px); margin: 16px auto; padding: 18px; }
-    }
-  </style>
+  <!-- Link CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+  <!-- HEADER -->
   <header>
-    <h1>CREATIVE PORTFOLIO</h1>
+    <h1>Marianne Patricia L. Dela Cruz</h1>
+    <p>Creative Portfolio</p>
   </header>
 
-  <nav>
-    <button class="tablink active" onclick="openTab(event,'home')">Home</button>
-    <button class="tablink" onclick="openTab(event,'about')">About Me</button>
-    <button class="tablink" onclick="openTab(event,'trad')">Traditional Art</button>
-    <button class="tablink" onclick="openTab(event,'digital')">Digital Art</button>
-    <button class="tablink" onclick="openTab(event,'works')">Graphic Design</button>
-    <button class="tablink" onclick="openTab(event,'photos')">Photography</button>
-    <button class="tablink" onclick="openTab(event,'contact')">Contact</button>
-  </nav>
-
+  <!-- MAIN CONTENT -->
   <main>
-    <section id="home" class="active">
-      <h2>Welcome to My Portfolio</h2>
-      <p>Explore my creative works and projects in art, design, and photography. I’m <strong>Marianne Patricia L. Dela Cruz</strong>, a multimedia arts student passionate about visual storytelling.</p>
-    </section>
+    <h2>About Me</h2>
+    <p>Hi! I am Marianne Patricia L. Dela Cruz, but you can call me Ianne for short. I am a second-year Multimedia Arts student who loves exploring different forms of visual storytelling. My passion lies in graphic design, and I am also learning more about photography and digital art.</p>
 
-    <section id="about">
-      <h2>About Me</h2>
-      <div class="about-grid">
-        <div><img src="Myphoto.jpg" alt="My Photo"></div>
-        <div>
-          <p><strong>Marianne Patricia L. Dela Cruz</strong><br>
-          2nd Year Multimedia Arts Student<br>
-          19 years old<br>
-          Born on November 18, 2005</p>
+    <p>I was born and raised in Marilao, Bulacan, and I enjoy expressing creativity through art, design, and music. I believe that creativity is not just about aesthetics but also about communicating stories that inspire people.</p>
 
-          <p>Hi! I am Marianne Patricia L. Dela Cruz, but you can call me Ianne for short. I specialize in graphic design and I am currently learning more about photography. I was born and raised in Marilao, Bulacan, and I enjoy exploring different art forms.</p>
+    <h3>My Hobbies</h3>
+    <ul>
+      <li>Graphic design and digital art</li>
+      <li>Photography and videography</li>
+      <li>Playing piano and guitar</li>
+      <li>Fitness and jogging</li>
+    </ul>
 
-          <h3>Hobbies</h3>
-          <ul class="gallery">
-            <li>Graphic design and digital art</li>
-            <li>Photography and videography</li>
-            <li>Playing piano and guitar</li>
-            <li>Singing</li>
-            <li>Fitness and jogging</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="trad">
-      <h2>Traditional Art</h2>
-      <ul class="gallery">
-        <li><img src="Resonance.png.png" alt="Resonance"><br>Resonance</li>
-        <li><img src="Quenched.png.png" alt="Quenched"><br>Quenched</li>
-        <li><img src="What once was.png.png" alt="What Once Was"><br>What Once Was</li>
-        <li><img src="Fruits.png.png" alt="Fruits"><br>Fruits</li>
-      </ul>
-    </section>
-
-    <section id="digital">
-      <h2>Digital Art</h2>
-      <ul class="gallery">
-        <li><img src="1.png.png" alt="Lighthouse Morning & Empty"><br>Lighthouse Moods – Morning & Empty</li>
-        <li><img src="2.png.png" alt="Lighthouse Sunset & Thunderstorm"><br>Lighthouse Moods – Sunset & Thunderstorm</li>
-        <li><img src="Yakuzas dont cry cover.png.png" alt="Yakuzas"><br>Yakuzas Don’t Cry – Cover</li>
-      </ul>
-    </section>
-
-    <section id="works">
-      <h2>Graphic Design</h2>
-      <ul class="gallery">
-        <li><img src="RSO FAIR.jpg" alt="RSO FAIR"><br>Student Organizations Fair 2025 Poster</li>
-        <li><img src="PRISM LOGO.png" alt="PRISM"><br>PRISM Logo</li>
-        <li><img src="FRESHIES GOT TALENT.jpg" alt="Freshies"><br>Freshies Got Talent Poster</li>
-        <li><img src="PRISM - WC BACK TAMARAWS.jpg" alt="Welcome Back Tamaraws"><br>Welcome Back Tamaraws Poster</li>
-      </ul>
-    </section>
-
-    <section id="photos">
-      <h2>Photography</h2>
-      <ul class="gallery">
-        <li><img src="Cat1.jpg" alt="Cat Portrait"><br>Cat Portrait</li>
-        <li><img src="Cat2.jpg" alt="Street Cat"><br>Street Cat</li>
-        <li><img src="Cat3.jpg" alt="Cat on Stairs"><br>Cat on Stairs</li>
-        <li><img src="Cat4.jpg" alt="Outdoor Cat"><br>Outdoor Cat</li>
-      </ul>
-    </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:mldelacruz1@fit.edu.ph">mldelacruz1@fit.edu.ph</a></p>
-      <p>Facebook: <a href="https://facebook.com" target="_blank">Marianne Dela Cruz</a></p>
-    </section>
+    <div class="photo-container">
+      <img src="Myphoto.jpg" alt="Photo of Marianne Dela Cruz">
+      <p class="caption">This is me, working on one of my creative projects.</p>
+    </div>
   </main>
 
+  <!-- FOOTER -->
   <footer>
-    <p>&copy; 2025 Marianne Patricia L. Dela Cruz — Creative Portfolio</p>
+    <p>Email: <a href="mailto:mldelacruz1@fit.edu.ph">mldelacruz1@fit.edu.ph</a></p>
+    <p>&copy; 2025 Creative Portfolio | Marianne Dela Cruz</p>
   </footer>
 
-  <script>
-    function openTab(evt, tabName) {
-      const sections = document.querySelectorAll('main section');
-      const buttons = document.querySelectorAll('.tablink');
-
-      sections.forEach(s => {
-        s.classList.remove('active');
-        s.style.display = 'none';
-      });
-      buttons.forEach(b => b.classList.remove('active'));
-
-      const sel = document.getElementById(tabName);
-      sel.style.display = 'block';
-      // small delay to allow transition
-      setTimeout(() => sel.classList.add('active'), 30);
-
-      evt.currentTarget.classList.add('active');
-      // scroll to top of main so user sees content immediately
-      window.scrollTo({ top: document.querySelector('main').offsetTop - 10, behavior: 'smooth' });
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      document.getElementById('home').style.display = 'block';
-      document.getElementById('home').classList.add('active');
-    });
-  </script>
 </body>
 </html>
