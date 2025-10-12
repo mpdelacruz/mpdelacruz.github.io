@@ -1,268 +1,267 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>CREATIVE PORTFOLIO</title>
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
   <style>
-    /* ======= GLOBAL STYLES ======= */
+    /* ---------- Responsive, fluid design ---------- */
+
+    :root{
+      --purple-dark: #330066;
+      --bg-lav: #d6b4fc;
+      --white: #ffffff;
+      --accent: #4b0082;
+      /* fluid spacing scale */
+      --gutter: clamp(12px, 1.2vw, 28px);
+    }
+
+    html { box-sizing: border-box; font-size: 16px; }
+    *, *::before, *::after { box-sizing: inherit; }
+
     body {
       font-family: 'Poppins', sans-serif;
       margin: 0;
-      background-color: #d6b4fc;
-      color: #333;
+      background-color: var(--bg-lav);
+      color: #222;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      /* make base font scale with viewport for zooming */
+      font-size: clamp(14px, 1.05vw + 12px, 18px);
+      line-height: 1.55;
     }
 
     header, footer {
-      background-color: #330066;
+      background-color: var(--purple-dark);
       color: white;
       text-align: center;
-      padding: 20px 0;
+      padding: clamp(14px, 1.5vw, 28px) 0;
       font-family: 'Bebas Neue', sans-serif;
       letter-spacing: 2px;
     }
 
     header h1 {
       margin: 0;
-      font-size: 2.5em;
+      font-size: clamp(20px, 3.3vw, 44px);
+      line-height: 1;
     }
 
-    /* ======= NAVIGATION ======= */
+    /* NAV - sticky and responsive */
     nav {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      background-color: #330066;
+      background-color: var(--purple-dark);
+      position: sticky;
+      top: 0;
+      z-index: 60;
+      gap: 6px;
     }
 
     nav button {
-      background-color: #330066;
+      background-color: var(--purple-dark);
       color: white;
       border: none;
-      padding: 14px 20px;
+      padding: clamp(8px, 0.8vw, 14px) clamp(10px, 1.2vw, 20px);
       cursor: pointer;
       font-family: 'Poppins', sans-serif;
-      font-size: 1em;
-      transition: all 0.3s ease;
+      font-size: clamp(12px, 0.9vw, 16px);
+      transition: all 0.25s ease;
+      border-radius: 3px;
     }
 
-    nav button:hover {
-      background-color: white;
-      color: #330066;
-    }
+    nav button:hover { background-color: var(--white); color: var(--purple-dark); }
+    nav button.active { background-color: var(--white); color: var(--purple-dark); }
 
-    nav button.active {
-      background-color: white;
-      color: #330066;
-    }
-
-    /* ======= MAIN CONTENT ======= */
+    /* MAIN container is fluid: width adapts; padding scales */
     main {
-      max-width: 1200px;
-      margin: 30px auto;
-      background-color: #ffffff;
+      width: min(1100px, 92%);
+      margin: clamp(18px, 3vw, 40px) auto;
+      background-color: var(--white);
       border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
-      padding: 30px;
-      min-height: 500px;
-      position: relative;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      padding: clamp(18px, 2.2vw, 36px);
+      min-height: 48vh;
     }
 
+    /* SECTIONS: hidden by default, fade in when active */
     section {
       display: none;
       opacity: 0;
-      transition: opacity 0.6s ease;
+      transform: translateY(6px);
+      transition: opacity 0.45s ease, transform 0.45s ease;
     }
-
     section.active {
       display: block;
       opacity: 1;
+      transform: translateY(0);
     }
 
+    /* Titles */
     h2 {
-      color: #330066;
-      border-left: 6px solid #330066;
+      color: var(--purple-dark);
+      border-left: 6px solid var(--purple-dark);
       padding-left: 10px;
+      margin-top: 0;
+      font-size: clamp(18px, 1.8vw, 28px);
     }
+    h3 { color: var(--accent); }
 
-    h3 {
-      color: #4b0082;
-    }
-
+    /* Images scale with container */
     img {
       border-radius: 8px;
+      max-width: 100%;
+      height: auto;
+      display: block;
     }
 
-    ul {
+    /* GALLERY: horizontal flow on wide screens, stacked on small */
+    ul.gallery {
       list-style: none;
       padding: 0;
+      margin: 0;
       display: flex;
       flex-wrap: wrap;
+      gap: clamp(12px, 1.6vw, 28px);
       justify-content: center;
-      gap: 20px;
     }
 
-    ul li {
+    ul.gallery li {
       text-align: center;
+      flex: 1 1 clamp(180px, 22vw, 300px);
+      max-width: clamp(220px, 28vw, 340px);
     }
 
-    ul li img {
-      width: 250px;
-      height: auto;
-      transition: transform 0.3s;
-    }
-
-    ul li img:hover {
-      transform: scale(1.05);
-    }
-
-    #about table {
+    ul.gallery li img {
       width: 100%;
+      height: auto;
+      transition: transform 0.25s ease;
+    }
+    ul.gallery li img:hover { transform: scale(1.04); }
+
+    /* ABOUT layout: table replaced with responsive grid */
+    #about .about-grid {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: clamp(12px, 1.6vw, 28px);
+      align-items: start;
     }
 
-    #about td {
-      vertical-align: top;
-      padding: 10px;
+    #about .about-grid img { width: 100%; border-radius: 8px; }
+
+    /* make about grid single column on small screens */
+    @media (max-width: 860px) {
+      #about .about-grid { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+      #about .about-grid td, #about .about-grid div { width: 100%; }
     }
 
-    footer {
-      margin-top: 40px;
-      font-size: 0.9em;
-    }
+    /* Footer tweaks */
+    footer { font-size: clamp(12px, 0.9vw, 14px); padding: clamp(10px, 1.2vw, 18px) 0; }
+    footer a { color: var(--bg-lav); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
 
-    footer a {
-      color: #d6b4fc;
-      text-decoration: none;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
-
-    /* Home section text color */
-    #home {
-      background-color: #330066;
-      color: white;
-      border-radius: 10px;
-      text-align: center;
-      padding: 60px 30px;
-    }
-
-    #home h2 {
-      color: white;
-      border: none;
-      font-size: 2em;
-    }
-
-    #home p {
-      color: white;
-      font-size: 1.1em;
-      max-width: 700px;
-      margin: auto;
+    /* Small screens: nav becomes vertical full width buttons for easier tapping */
+    @media (max-width: 600px) {
+      nav { flex-direction: column; align-items: stretch; gap: 0; position: sticky; top: 0; }
+      nav button {
+        width: 100%;
+        text-align: left;
+        padding-left: clamp(14px, 4vw, 20px);
+        border-top: 1px solid rgba(255,255,255,0.06);
+      }
+      header h1 { font-size: clamp(18px, 4vw, 28px); }
+      main { width: calc(100% - 28px); margin: 16px auto; padding: 18px; }
     }
   </style>
 </head>
-
 <body>
-  <!-- HEADER -->
   <header>
     <h1>CREATIVE PORTFOLIO</h1>
   </header>
 
-  <!-- NAVIGATION -->
   <nav>
-    <button class="tablink active" onclick="openTab(event, 'home')">Home</button>
-    <button class="tablink" onclick="openTab(event, 'about')">About Me</button>
-    <button class="tablink" onclick="openTab(event, 'trad')">Traditional Art</button>
-    <button class="tablink" onclick="openTab(event, 'digital')">Digital Art</button>
-    <button class="tablink" onclick="openTab(event, 'works')">Graphic Design</button>
-    <button class="tablink" onclick="openTab(event, 'photos')">Photography</button>
-    <button class="tablink" onclick="openTab(event, 'contact')">Contact</button>
+    <button class="tablink active" onclick="openTab(event,'home')">Home</button>
+    <button class="tablink" onclick="openTab(event,'about')">About Me</button>
+    <button class="tablink" onclick="openTab(event,'trad')">Traditional Art</button>
+    <button class="tablink" onclick="openTab(event,'digital')">Digital Art</button>
+    <button class="tablink" onclick="openTab(event,'works')">Graphic Design</button>
+    <button class="tablink" onclick="openTab(event,'photos')">Photography</button>
+    <button class="tablink" onclick="openTab(event,'contact')">Contact</button>
   </nav>
 
-  <!-- MAIN CONTENT -->
   <main>
-    <!-- HOME -->
     <section id="home" class="active">
       <h2>Welcome to My Portfolio</h2>
-      <p>Explore my creative works and projects in art, design, and photography.<br>
-      I’m <strong>Marianne Patricia L. Dela Cruz</strong>, a multimedia arts student passionate about expressing creativity through various forms of visual storytelling.</p>
+      <p>Explore my creative works and projects in art, design, and photography. I’m <strong>Marianne Patricia L. Dela Cruz</strong>, a multimedia arts student passionate about visual storytelling.</p>
     </section>
 
-    <!-- ABOUT -->
     <section id="about">
       <h2>About Me</h2>
-      <table>
-        <tr>
-          <td>
-            <img src="Myphoto.jpg" alt="My Photo" width="250">
-          </td>
-          <td>
-            <p><strong>Marianne Patricia L. Dela Cruz</strong><br>
-            2nd Year Multimedia Arts Student<br>
-            19 years old<br>
-            Born on November 18, 2005</p>
-            <p>Hi! I am Marianne Patricia L. Dela Cruz, but you can call me Ianne for short. I specialize in graphic design and I am currently learning more about photography. I was born and raised in Marilao, Bulacan, and I enjoy exploring different art forms.</p>
-            <h3>Hobbies</h3>
-            <ul>
-              <li>Graphic design and digital art</li>
-              <li>Photography and videography</li>
-              <li>Playing piano and guitar</li>
-              <li>Singing</li>
-              <li>Fitness and jogging</li>
-            </ul>
-          </td>
-        </tr>
-      </table>
+      <div class="about-grid">
+        <div><img src="Myphoto.jpg" alt="My Photo"></div>
+        <div>
+          <p><strong>Marianne Patricia L. Dela Cruz</strong><br>
+          2nd Year Multimedia Arts Student<br>
+          19 years old<br>
+          Born on November 18, 2005</p>
+
+          <p>Hi! I am Marianne Patricia L. Dela Cruz, but you can call me Ianne for short. I specialize in graphic design and I am currently learning more about photography. I was born and raised in Marilao, Bulacan, and I enjoy exploring different art forms.</p>
+
+          <h3>Hobbies</h3>
+          <ul class="gallery">
+            <li>Graphic design and digital art</li>
+            <li>Photography and videography</li>
+            <li>Playing piano and guitar</li>
+            <li>Singing</li>
+            <li>Fitness and jogging</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
-    <!-- TRADITIONAL ART -->
     <section id="trad">
       <h2>Traditional Art</h2>
-      <ul>
-        <li><img src="Resonance.png.png" alt="Resonance artwork"><br>Resonance</li>
-        <li><img src="Quenched.png.png" alt="Quenched artwork"><br>Quenched</li>
-        <li><img src="What once was.png.png" alt="What Once Was artwork"><br>What Once Was</li>
-        <li><img src="Fruits.png.png" alt="Fruits artwork"><br>Fruits</li>
+      <ul class="gallery">
+        <li><img src="Resonance.png.png" alt="Resonance"><br>Resonance</li>
+        <li><img src="Quenched.png.png" alt="Quenched"><br>Quenched</li>
+        <li><img src="What once was.png.png" alt="What Once Was"><br>What Once Was</li>
+        <li><img src="Fruits.png.png" alt="Fruits"><br>Fruits</li>
       </ul>
     </section>
 
-    <!-- DIGITAL ART -->
     <section id="digital">
       <h2>Digital Art</h2>
-      <ul>
-        <li><img src="1.png.png" alt="Lighthouse Moods Morning & Empty"><br>Lighthouse Moods – Morning & Empty</li>
-        <li><img src="2.png.png" alt="Lighthouse Moods Sunset & Thunderstorm"><br>Lighthouse Moods – Sunset & Thunderstorm</li>
-        <li><img src="Yakuzas dont cry cover.png.png" alt="Yakuzas Don't Cry cover"><br>Yakuzas Don’t Cry – Cover Design</li>
+      <ul class="gallery">
+        <li><img src="1.png.png" alt="Lighthouse Morning & Empty"><br>Lighthouse Moods – Morning & Empty</li>
+        <li><img src="2.png.png" alt="Lighthouse Sunset & Thunderstorm"><br>Lighthouse Moods – Sunset & Thunderstorm</li>
+        <li><img src="Yakuzas dont cry cover.png.png" alt="Yakuzas"><br>Yakuzas Don’t Cry – Cover</li>
       </ul>
     </section>
 
-    <!-- GRAPHIC DESIGN -->
     <section id="works">
       <h2>Graphic Design</h2>
-      <ul>
-        <li><img src="RSO FAIR.jpg" alt="Student Organizations Fair Poster"><br>Student Organizations Fair 2025 Poster</li>
-        <li><img src="PRISM LOGO.png" alt="PRISM Logo"><br>PRISM Logo – Breaking Through the Ordinary</li>
-        <li><img src="FRESHIES GOT TALENT.jpg" alt="Freshies Got Talent Poster"><br>Freshies Got Talent Poster</li>
-        <li><img src="PRISM - WC BACK TAMARAWS.jpg" alt="Welcome Back Tamaraws Poster"><br>Welcome Back Tamaraws Poster</li>
+      <ul class="gallery">
+        <li><img src="RSO FAIR.jpg" alt="RSO FAIR"><br>Student Organizations Fair 2025 Poster</li>
+        <li><img src="PRISM LOGO.png" alt="PRISM"><br>PRISM Logo</li>
+        <li><img src="FRESHIES GOT TALENT.jpg" alt="Freshies"><br>Freshies Got Talent Poster</li>
+        <li><img src="PRISM - WC BACK TAMARAWS.jpg" alt="Welcome Back Tamaraws"><br>Welcome Back Tamaraws Poster</li>
       </ul>
     </section>
 
-    <!-- PHOTOGRAPHY -->
     <section id="photos">
       <h2>Photography</h2>
-      <ul>
-        <li><img src="Cat1.jpg" alt="Cat photo 1"><br>Cat Portrait</li>
-        <li><img src="Cat2.jpg" alt="Cat photo 2"><br>Street Cat</li>
-        <li><img src="Cat3.jpg" alt="Cat photo 3"><br>Cat on Stairs</li>
-        <li><img src="Cat4.jpg" alt="Cat photo 4"><br>Outdoor Cat</li>
+      <ul class="gallery">
+        <li><img src="Cat1.jpg" alt="Cat Portrait"><br>Cat Portrait</li>
+        <li><img src="Cat2.jpg" alt="Street Cat"><br>Street Cat</li>
+        <li><img src="Cat3.jpg" alt="Cat on Stairs"><br>Cat on Stairs</li>
+        <li><img src="Cat4.jpg" alt="Outdoor Cat"><br>Outdoor Cat</li>
       </ul>
     </section>
 
-    <!-- CONTACT -->
     <section id="contact">
       <h2>Contact</h2>
       <p>Email: <a href="mailto:mldelacruz1@fit.edu.ph">mldelacruz1@fit.edu.ph</a></p>
@@ -270,27 +269,29 @@
     </section>
   </main>
 
-  <!-- FOOTER -->
   <footer>
     <p>&copy; 2025 Marianne Patricia L. Dela Cruz — Creative Portfolio</p>
   </footer>
 
-  <!-- JAVASCRIPT (TABS) -->
   <script>
     function openTab(evt, tabName) {
-      const sections = document.querySelectorAll('section');
+      const sections = document.querySelectorAll('main section');
       const buttons = document.querySelectorAll('.tablink');
 
-      sections.forEach(section => {
-        section.classList.remove('active');
-        section.style.display = 'none';
+      sections.forEach(s => {
+        s.classList.remove('active');
+        s.style.display = 'none';
       });
-      buttons.forEach(button => button.classList.remove('active'));
+      buttons.forEach(b => b.classList.remove('active'));
 
-      const selected = document.getElementById(tabName);
-      selected.style.display = 'block';
-      setTimeout(() => selected.classList.add('active'), 50);
+      const sel = document.getElementById(tabName);
+      sel.style.display = 'block';
+      // small delay to allow transition
+      setTimeout(() => sel.classList.add('active'), 30);
+
       evt.currentTarget.classList.add('active');
+      // scroll to top of main so user sees content immediately
+      window.scrollTo({ top: document.querySelector('main').offsetTop - 10, behavior: 'smooth' });
     }
 
     document.addEventListener('DOMContentLoaded', () => {
@@ -300,5 +301,3 @@
   </script>
 </body>
 </html>
-
-
