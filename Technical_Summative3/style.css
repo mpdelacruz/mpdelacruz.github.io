@@ -9,10 +9,12 @@ body {
 
 /* ===== HEADER ===== */
 header {
-  background: url('portfolioheader.png') no-repeat center center;
+  background-image: url('portfolioheader.png');
+  background-repeat: no-repeat;
+  background-position: center center;
   background-size: cover;
   height: 350px;
-  position: relative;
+  width: 100%;
 }
 
 /* ===== MAIN CONTENT ===== */
