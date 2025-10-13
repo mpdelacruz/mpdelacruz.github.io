@@ -23,6 +23,10 @@
   <main>
     <h2>About Me</h2>
     <div class="about-me-container">
+      <div class="about-photo">
+        <img src="Myphoto.jpg" alt="Photo of Marianne Dela Cruz">
+      </div>
+
       <div class="about-text">
         <p>Hi! I am Marianne Patricia L. Dela Cruz, but you can call me Ianne for short. I am a second-year Multimedia Arts student who loves exploring different forms of visual storytelling. My passion lies in graphic design, and I am also learning more about photography and digital art.</p>
 
@@ -36,49 +40,76 @@
           <li>Fitness and jogging</li>
         </ul>
       </div>
-
-      <div class="photo-container">
-        <img src="Myphoto.jpg" alt="Photo of Marianne Dela Cruz">
-      </div>
     </div>
 
     <h2>Traditional Art</h2>
     <div class="gallery">
-      <img src="Resonance.png.png" alt="Resonance artwork">
-      <img src="Quenched.png.png" alt="Quenched artwork">
-      <img src="What once was.png.png" alt="What Once Was artwork">
-      <img src="Fruits.png.png" alt="Fruits artwork">
+      <img src="Resonance.png.png" alt="Resonance artwork" class="clickable">
+      <img src="Quenched.png.png" alt="Quenched artwork" class="clickable">
+      <img src="What once was.png.png" alt="What Once Was artwork" class="clickable">
+      <img src="Fruits.png.png" alt="Fruits artwork" class="clickable">
     </div>
 
     <h2>Digital Art</h2>
     <div class="gallery">
-      <img src="1.png.png" alt="Lighthouse Morning & Empty">
-      <img src="2.png.png" alt="Lighthouse Sunset & Thunderstorm">
-      <img src="Yakuzas dont cry cover.png.png" alt="Yakuzas Don’t Cry cover">
+      <img src="1.png.png" alt="Lighthouse Morning & Empty" class="clickable">
+      <img src="2.png.png" alt="Lighthouse Sunset & Thunderstorm" class="clickable">
+      <img src="Yakuzas dont cry cover.png.png" alt="Yakuzas Don’t Cry cover" class="clickable">
     </div>
 
     <h2>Graphic Design</h2>
     <div class="gallery">
-      <img src="RSO FAIR.jpg" alt="Student Organizations Fair Poster">
-      <img src="PRISM LOGO.png" alt="PRISM Logo">
-      <img src="FRESHIES GOT TALENT.jpg" alt="Freshies Got Talent Poster">
-      <img src="PRISM - WC BACK TAMARAWS.jpg" alt="Welcome Back Tamaraws Poster">
+      <img src="RSO FAIR.jpg" alt="Student Organizations Fair Poster" class="clickable">
+      <img src="PRISM LOGO.png" alt="PRISM Logo" class="clickable">
+      <img src="FRESHIES GOT TALENT.jpg" alt="Freshies Got Talent Poster" class="clickable">
+      <img src="PRISM - WC BACK TAMARAWS.jpg" alt="Welcome Back Tamaraws Poster" class="clickable">
     </div>
 
     <h2>Photography</h2>
     <div class="gallery">
-      <img src="Cat1.jpg" alt="Cat photo 1">
-      <img src="Cat2.jpg" alt="Cat photo 2">
-      <img src="Cat3.jpg" alt="Cat photo 3">
-      <img src="Cat4.jpg" alt="Cat photo 4">
+      <img src="Cat1.jpg" alt="Cat photo 1" class="clickable">
+      <img src="Cat2.jpg" alt="Cat photo 2" class="clickable">
+      <img src="Cat3.jpg" alt="Cat photo 3" class="clickable">
+      <img src="Cat4.jpg" alt="Cat photo 4" class="clickable">
     </div>
   </main>
+
+  <!-- LIGHTBOX OVERLAY -->
+  <div id="lightbox-overlay">
+    <span id="lightbox-close">&times;</span>
+    <img id="lightbox-img" src="" alt="Enlarged image">
+  </div>
 
   <!-- FOOTER -->
   <footer>
     <p>Email: <a href="mailto:mldelacruz1@fit.edu.ph">mldelacruz1@fit.edu.ph</a></p>
     <p>&copy; 2025 Creative Portfolio | Marianne Dela Cruz</p>
   </footer>
+
+  <!-- LIGHTBOX SCRIPT -->
+  <script>
+    const images = document.querySelectorAll('.clickable');
+    const lightboxOverlay = document.getElementById('lightbox-overlay');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = document.getElementById('lightbox-close');
+
+    images.forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightboxOverlay.style.display = 'flex';
+      });
+    });
+
+    lightboxClose.addEventListener('click', () => {
+      lightboxOverlay.style.display = 'none';
+    });
+
+    lightboxOverlay.addEventListener('click', (e) => {
+      if (e.target === lightboxOverlay) {
+        lightboxOverlay.style.display = 'none';
+      }
+    });
+  </script>
 
 </body>
 </html>
