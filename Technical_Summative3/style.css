@@ -30,8 +30,7 @@ header p {
 /* ===== MAIN CONTENT ===== */
 main {
   background-color: white;
-  width: 90%;          /* updated to fill more of the screen */
-  max-width: 1200px;   /* keeps it from getting too wide */
+  max-width: 1000px;
   margin: 40px auto;
   padding: 30px;
   border-radius: 10px;
