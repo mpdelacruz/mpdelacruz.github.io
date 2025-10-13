@@ -6,124 +6,84 @@
   <title>Creative Portfolio - Marianne Dela Cruz</title>
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
-  <!-- External CSS -->
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- HEADER WITH NAVIGATION -->
+  <!-- HEADER -->
   <header>
-    <nav>
-      <ul>
-        <li><a href="#about-me">About Me</a></li>
-        <li><a href="#graphic-design">Graphic Design</a></li>
-        <li><a href="#traditional-art">Traditional Art</a></li>
-        <li><a href="#digital-art">Digital Art</a></li>
-        <li><a href="#photography">Photography</a></li>
-      </ul>
-    </nav>
+    <div class="header-overlay">
+      <h1>Marianne Patricia L. Dela Cruz</h1>
+      <p>Creative Portfolio</p>
+
+      <!-- NAVIGATION -->
+      <nav>
+        <ul>
+          <li><a href="#about">About Me</a></li>
+          <li><a href="#graphic">Graphic Design</a></li>
+          <li><a href="#traditional">Traditional Art</a></li>
+          <li><a href="#digital">Digital Art</a></li>
+          <li><a href="#photo">Photography</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
   <!-- MAIN CONTENT -->
   <main>
-    <section id="about-me">
+    <!-- ABOUT ME SECTION -->
+    <section id="about">
       <h2>About Me</h2>
-      <div class="about-me-container">
-        <div class="about-photo">
-          <img src="Myphoto.jpg" alt="Photo of Marianne Dela Cruz">
-        </div>
-        <div class="about-text">
-          <p>Hi! I am Marianne Patricia L. Dela Cruz, but you can call me Ianne for short. I am a second-year Multimedia Arts student who loves exploring different forms of visual storytelling. My passion lies in graphic design, and I am also learning more about photography and digital art.</p>
-          <p>I was born and raised in Marilao, Bulacan, and I enjoy expressing creativity through art, design, and music. I believe that creativity is not just about aesthetics but also about communicating stories that inspire people.</p>
-          <h3>My Hobbies</h3>
-          <ul>
-            <li>Graphic design and digital art</li>
-            <li>Photography and videography</li>
-            <li>Playing piano and guitar</li>
-            <li>Fitness and jogging</li>
-          </ul>
-        </div>
+      <div class="about-content">
+        <img src="Myphoto.jpg" alt="Photo of Marianne Dela Cruz">
+        <p>Hi! I am Marianne Patricia L. Dela Cruz, but you can call me Ianne for short. I am a second-year Multimedia Arts student who loves exploring different forms of visual storytelling. My passion lies in graphic design, and I am also learning more about photography and digital art.</p>
       </div>
+
+      <p>I was born and raised in Marilao, Bulacan, and I enjoy expressing creativity through art, design, and music. I believe that creativity is not just about aesthetics but also about communicating stories that inspire people.</p>
+
+      <h3>My Hobbies</h3>
+      <ul>
+        <li>Graphic design and digital art</li>
+        <li>Photography and videography</li>
+        <li>Playing piano and guitar</li>
+        <li>Fitness and jogging</li>
+      </ul>
     </section>
 
-    <section id="traditional-art">
-      <h2>Traditional Art</h2>
-      <div class="gallery">
-        <img src="Resonance.png.png" alt="Resonance artwork" class="clickable">
-        <img src="Quenched.png.png" alt="Quenched artwork" class="clickable">
-        <img src="What once was.png.png" alt="What Once Was artwork" class="clickable">
-        <img src="Fruits.png.png" alt="Fruits artwork" class="clickable">
-      </div>
-    </section>
-
-    <section id="digital-art">
-      <h2>Digital Art</h2>
-      <div class="gallery">
-        <img src="1.png.png" alt="Lighthouse Morning & Empty" class="clickable">
-        <img src="2.png.png" alt="Lighthouse Sunset & Thunderstorm" class="clickable">
-        <img src="Yakuzas dont cry cover.png.png" alt="Yakuzas Don’t Cry cover" class="clickable">
-      </div>
-    </section>
-
-    <section id="graphic-design">
+    <!-- OTHER SECTIONS (placeholder for now) -->
+    <section id="graphic">
       <h2>Graphic Design</h2>
-      <div class="gallery">
-        <img src="RSO FAIR.jpg" alt="Student Organizations Fair Poster" class="clickable">
-        <img src="PRISM LOGO.png" alt="PRISM Logo" class="clickable">
-        <img src="FRESHIES GOT TALENT.jpg" alt="Freshies Got Talent Poster" class="clickable">
-        <img src="PRISM - WC BACK TAMARAWS.jpg" alt="Welcome Back Tamaraws Poster" class="clickable">
-      </div>
+      <p>Showcase your creative graphic design works here!</p>
     </section>
 
-    <section id="photography">
+    <section id="traditional">
+      <h2>Traditional Art</h2>
+      <p>Your traditional artworks can go here.</p>
+    </section>
+
+    <section id="digital">
+      <h2>Digital Art</h2>
+      <p>Include your digital paintings or illustrations here.</p>
+    </section>
+
+    <section id="photo">
       <h2>Photography</h2>
       <div class="gallery">
-        <img src="Cat1.jpg" alt="Cat photo 1" class="clickable">
-        <img src="Cat2.jpg" alt="Cat photo 2" class="clickable">
-        <img src="Cat3.jpg" alt="Cat photo 3" class="clickable">
-        <img src="Cat4.jpg" alt="Cat photo 4" class="clickable">
+        <a href="photo1.jpg" target="_blank"><img src="photo1.jpg" alt="Photography Sample 1"></a>
+        <a href="photo2.jpg" target="_blank"><img src="photo2.jpg" alt="Photography Sample 2"></a>
+        <a href="photo3.jpg" target="_blank"><img src="photo3.jpg" alt="Photography Sample 3"></a>
       </div>
     </section>
   </main>
-
-  <!-- LIGHTBOX OVERLAY -->
-  <div id="lightbox-overlay">
-    <span id="lightbox-close">&times;</span>
-    <img id="lightbox-img" src="" alt="Enlarged image">
-  </div>
 
   <!-- FOOTER -->
   <footer>
     <p>Email: <a href="mailto:mldelacruz1@fit.edu.ph">mldelacruz1@fit.edu.ph</a></p>
     <p>&copy; 2025 Creative Portfolio | Marianne Dela Cruz</p>
   </footer>
-
-  <!-- LIGHTBOX SCRIPT -->
-  <script>
-    const images = document.querySelectorAll('.clickable');
-    const lightboxOverlay = document.getElementById('lightbox-overlay');
-    const lightboxImg = document.getElementById('lightbox-img');
-    const lightboxClose = document.getElementById('lightbox-close');
-
-    images.forEach(img => {
-      img.addEventListener('click', () => {
-        lightboxImg.src = img.src;
-        lightboxOverlay.style.display = 'flex';
-      });
-    });
-
-    lightboxClose.addEventListener('click', () => {
-      lightboxOverlay.style.display = 'none';
-    });
-
-    lightboxOverlay.addEventListener('click', (e) => {
-      if (e.target === lightboxOverlay) {
-        lightboxOverlay.style.display = 'none';
-      }
-    });
-  </script>
 
 </body>
 </html>
