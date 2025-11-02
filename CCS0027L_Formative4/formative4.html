@@ -105,9 +105,9 @@
       background-color: #7ebb5b;
     }
 
-    /* Dark mode toggle button in upper-right corner */
+    /* Dark/light toggle button in upper-right corner */
     .dark-mode-toggle {
-      position: absolute;
+      position: fixed;
       top: 15px;
       right: 15px;
       padding: 5px 10px;
@@ -118,6 +118,7 @@
       font-weight: 600;
       background-color: #94c973;
       color: white;
+      z-index: 1000;
       transition: background-color 0.3s;
     }
 
@@ -185,7 +186,7 @@
 </head>
 
 <body>
-  <!-- Dark mode toggle button -->
+  <!-- Small button fixed at upper-right -->
   <button class="dark-mode-toggle" id="toggleMode">Dark/Light</button>
 
   <h1>Good day! Kindly fill up this form.</h1>
