@@ -4,77 +4,91 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Formative Activity 4 - Sign Up Form</title>
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
   <script defer src="script.js"></script>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f3f4f6;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #f4fdf4;
       padding: 20px;
-    }
-
-    h1 {
-      text-align: center;
       color: #333;
     }
 
+    h1, h2 {
+      text-align: center;
+      color: #14532d; /* dark green */
+    }
+
     form {
-      background-color: #fff;
-      padding: 20px;
-      margin: 20px auto;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      max-width: 400px;
+      background-color: #ffffff;
+      padding: 25px;
+      margin: 30px auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      max-width: 500px; /* wider form */
+      border-top: 6px solid #65a30d; /* yellow-green accent */
     }
 
     label {
       display: block;
-      margin-top: 10px;
-      font-weight: bold;
+      margin-top: 12px;
+      font-weight: 600;
+      color: #166534;
     }
 
     input, select {
       width: 100%;
-      padding: 8px;
-      margin-top: 5px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
+      padding: 10px;
+      margin-top: 6px;
+      border-radius: 6px;
+      border: 1px solid #9ca3af;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
     }
 
     button {
-      margin-top: 15px;
-      padding: 10px;
-      background-color: #2563eb;
+      margin-top: 20px;
+      padding: 12px;
+      background-color: #22c55e; /* bright green */
       color: white;
       border: none;
-      border-radius: 5px;
+      border-radius: 6px;
       cursor: pointer;
       width: 100%;
+      font-weight: 600;
+      font-size: 15px;
+      transition: background-color 0.3s, transform 0.1s;
     }
 
     button:hover {
-      background-color: #1d4ed8;
+      background-color: #16a34a; /* darker green on hover */
+      transform: scale(1.02);
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
       margin-top: 30px;
+      font-size: 14px;
     }
 
     th, td {
-      border: 1px solid #ccc;
+      border: 1px solid #d1d5db;
       padding: 10px;
       text-align: center;
     }
 
     th {
-      background-color: #2563eb;
+      background-color: #65a30d; /* yellow-green accent */
       color: white;
     }
 
+    tr:nth-child(even) {
+      background-color: #f9fafb;
+    }
+
     tr:hover {
-      background-color: #e0f2fe;
+      background-color: #dcfce7; /* light green hover */
     }
   </style>
 </head>
@@ -124,3 +138,4 @@
   </table>
 </body>
 </html>
+
