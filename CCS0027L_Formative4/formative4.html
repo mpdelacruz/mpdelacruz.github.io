@@ -19,6 +19,7 @@
       min-height: 100vh;
       box-sizing: border-box;
       transition: background-color 0.3s, color 0.3s;
+      position: relative;
     }
 
     body.dark-mode {
@@ -104,9 +105,13 @@
       background-color: #7ebb5b;
     }
 
+    /* Dark mode toggle button in upper-right corner */
     .dark-mode-toggle {
-      margin-bottom: 20px;
-      padding: 8px 12px;
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      padding: 5px 10px;
+      font-size: 12px;
       border-radius: 5px;
       border: none;
       cursor: pointer;
@@ -181,7 +186,7 @@
 
 <body>
   <!-- Dark mode toggle button -->
-  <button class="dark-mode-toggle" id="toggleMode">Toggle Dark/Light Mode</button>
+  <button class="dark-mode-toggle" id="toggleMode">Dark/Light</button>
 
   <h1>Good day! Kindly fill up this form.</h1>
 
@@ -230,7 +235,6 @@
     </table>
   </div>
 
-  <!-- Link to external JS -->
   <script src="script.js"></script>
 </body>
 </html>
