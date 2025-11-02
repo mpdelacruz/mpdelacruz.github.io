@@ -23,6 +23,7 @@
     h1 {
       color: #2e6b2e;
       text-align: center;
+      margin-bottom: 10px;
     }
 
     form {
@@ -68,11 +69,17 @@
       background-color: #7ebb5b;
     }
 
+    h2 {
+      margin-top: 40px;
+      color: #2e6b2e;
+      text-align: center;
+    }
+
     .table-container {
       width: 100%;
       max-width: 700px;
-      overflow-x: auto; /* enables horizontal scroll on small screens */
-      margin-top: 30px;
+      overflow-x: auto;
+      margin-top: 15px;
     }
 
     table {
@@ -99,7 +106,6 @@
       background-color: #f9fff2;
     }
 
-    /* ✅ Makes the layout adaptive */
     @media (max-width: 480px) {
       body {
         padding: 15px;
@@ -118,7 +124,7 @@
 </head>
 
 <body>
-  <h1>Sign Up Form</h1>
+  <h1>Good day! Kindly answer this sign up form.</h1>
 
   <form id="signupForm">
     <label for="idNumber">ID Number:</label>
@@ -146,6 +152,8 @@
 
     <button type="button" id="saveBtn">Save</button>
   </form>
+
+  <h2>Saved Records</h2>
 
   <div class="table-container">
     <table id="dataTable">
